@@ -28,4 +28,17 @@ def write_inventory(filename, inventory):
         # iron:7
         # wood:10
     """
-    pass  # Reemplazar con tu implementación
+    
+    with open(filename, "r") as archivo:
+        content = archivo.read()
+        lista_palabras = content.split()
+        longest_word = ""
+        cantidad = 0
+        
+        if lista_palabras == []:
+            raise ValueError("file has no words")
+        for palabra in lista_palabras:
+            if len(palabra) > cantidad:
+                longest_word = palabra
+                cantidad = len(palabra)
+        return longest_word
