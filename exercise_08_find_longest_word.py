@@ -42,4 +42,4 @@ def find_longest_word(filename):
                 longest_word = palabra
                 cantidad = len(palabra)
                 
-        return palabramaslarga
+        return longest_word
