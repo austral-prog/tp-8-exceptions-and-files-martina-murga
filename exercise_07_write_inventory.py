@@ -29,16 +29,7 @@ def write_inventory(filename, inventory):
         # wood:10
     """
     
-    with open(filename, "r") as archivo:
-        content = archivo.read()
-        lista_palabras = content.split()
-        longest_word = ""
-        cantidad = 0
-        
-        if lista_palabras == []:
-            raise ValueError("file has no words")
-        for palabra in lista_palabras:
-            if len(palabra) > cantidad:
-                longest_word = palabra
-                cantidad = len(palabra)
-        return longest_word
+    with open (filename, "w") as archivo:
+        ordenado = dict(sorted(inventory.items()))
+        for cosa, cantidad in ordenado.items():
+            archivo.write(f"{cosa}:{cantidad}\n")
